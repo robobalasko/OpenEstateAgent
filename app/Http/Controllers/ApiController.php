@@ -56,13 +56,25 @@ class ApiController extends Controller
 	/**
 	 * Reponds with a generic HTTP 200.
 	 * 
-	 * @param string $message
 	 * @param mixed  $data
+	 * @param string $message
 	 */
-	public function respondOk($message, $data = null)
+	public function respondOk($data = null, $message = "")
 	{
-		return $this->setReponseCode(200)
-			->setResponseMessage($message)
-			->setReponseData($data);
+		$this->setReponseCode(200)
+			 ->setReponseData($data)
+			 ->setResponseMessage($message);
+		
+		return $this->getReponse();
+	}
+	
+	/**
+	 * Returns the reponse instance attribute.
+	 * 
+	 * @return array
+	 */
+	public function getReponse()
+	{
+		return $this->response;
 	}
 }
