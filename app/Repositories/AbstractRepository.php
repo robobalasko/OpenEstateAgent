@@ -14,6 +14,16 @@ abstract class AbstractRepository implements RepositoryInterface
 	protected $model;
 	
 	/**
+	 * AbstractRepository.
+	 * 
+	 * @param Model $model
+	 */
+	public function __construct(Model $model)
+	{
+		$this->model = $model;
+	}
+	
+	/**
 	 * {@inheritDoc}
 	 * @see \App\Repositories\RepositoryInterface::getAll()
 	 */
